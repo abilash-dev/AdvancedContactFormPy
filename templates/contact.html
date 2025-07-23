@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <meta property="og:title" content="Contact">
+    <meta property="og:type" content="website">
+    <meta property="og:theme-color" content="#FFFFF">
+    <meta property="og:image" content="https://img.icons8.com/pulsar-gradient/48/about-me.png">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/pulsar-gradient/48/about-me.png">
+
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <div class="flash-messages">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="flash {{ category }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
+
+        <div id="signin-section" style="{% if otp_sent %}display: none;{% endif %}">
+            <div id="g_id_onload" data-client_id={{google_client_id}} data-callback="handleCredentialResponse"
+                data-auto_prompt="false">
+            </div>
+            {% if mail_enabled %}
+            <button type="button" onclick="showManualLogin()"
+                style="display:block; text-align:center; background:#2196F3; color:white; padding:10px; border-radius:4px; text-decoration:none; margin-top:10px;">Login
+                with Email</button>
+            {% endif %}
+            {% if discord_enabled %}
+            <button onclick="window.location.href='/login/discord'"
+                style="display:block; text-align:center; background:#5865F2; color:white; padding:10px; border-radius:4px; text-decoration:none; margin-top:15px; margin-bottom:10px;">Login
+                with Discord</button>
+            {% endif %}
+            {% if google_enabled %}
+            <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="filled_blue"
+                data-text="signin_with" data-size="large" data-logo_alignment="left" data-width="400">
+            </div>
+            {% endif %}
+        </div>
+
+        <form id="contact-form" action="/submit" method="post" style="display: none;">
+            <input type="hidden" id="name-hidden" name="name-hidden">
+            <input type="hidden" id="email-hidden" name="email-hidden">
+            <div id="manual-fields" class="form-group" style="display: none;">
+                <label for="manual-name">Name:</label>
+                <input type="text" id="manual-name" name="manual-name">
+
+                <label for="manual-email" style="margin-top: 10px;">Email:</label>
+                <input type="email" id="manual-email" name="manual-email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if otp_sent %}
+        <div id="otp-section" class="container">
+            <h3>OTP Verification</h3>
+            <form action="/verify_otp" method="post">
+                <div class="form-group">
+                    <label for="otp">Enter your OTP:</label>
+                    <input type="text" id="otp" name="otp" required>
+                </div>
+                <button type="submit">Verify OTP</button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="/static/js/index.js"></script>
+
+    <script>
+        {% if discord_user %}
+        document.addEventListener('DOMContentLoaded', function () {
+            const nameInput = document.getElementById('name-hidden');
+            const emailInput = document.getElementById('email-hidden');
+            const contactForm = document.getElementById('contact-form');
+            const googleSignin = document.getElementById('signin-section');
+
+            if (nameInput && emailInput && contactForm && googleSignin) {
+                nameInput.value = "{{ discord_user.name | escape }}";
+                emailInput.value = "{{ discord_user.email | escape }}";
+                contactForm.style.display = 'block';
+                googleSignin.style.display = 'none';
+            }
+        });
+        {% endif %}
+    </script>
+</body>
+
+</html>
