@@ -1,3 +1,9 @@
+"""
+
+© abilash-dev | https://github.com/abilash-dev/AdvancedContactFormPy
+
+"""
+
 from flask import Flask, render_template, request, redirect, flash, session, url_for
 import smtplib, uuid, random, json
 from datetime import datetime
@@ -138,6 +144,7 @@ def submit_form():
                         <hr style="border: 1px solid #ddd;">
                         <footer style="font-size: 12px; color: #888;">
                             <p>This is an automated reply from our website.</p>
+                            <p>© abilash-dev | https://github.com/abilash-dev/AdvancedContactFormPy</p>
                         </footer>
                     </body>
                 </html>
@@ -204,6 +211,7 @@ def verify_otp():
                     <hr style="border: 1px solid #ddd;">
                     <footer style="font-size: 12px; color: #888;">
                         <p>This is an automated reply from our website.</p>
+                        <p>© abilash-dev | https://github.com/abilash-dev/AdvancedContactFormPy</p>
                     </footer>
                     <p style="font-size: 12px; color: #555;">
                     Kind Regards,<br>

@@ -1,3 +1,9 @@
+/*
+
+© abilash-dev | https://github.com/abilash-dev/AdvancedContactFormPy
+
+*/
+
 function handleCredentialResponse(response) {
     const data = jwt_decode(response.credential);
     document.getElementById('name-hidden').value = data.name;
