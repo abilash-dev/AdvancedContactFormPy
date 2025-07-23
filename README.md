@@ -98,6 +98,8 @@ Each submission generates a **unique form ID**, making it easy to track conversa
     python app.py
     ```
 
+> ⚠️ Requires **Python 3.11+**
+
 ---
 
 ## Configuration
@@ -145,17 +147,15 @@ _Star ⭐ the project if you like it!_
 If you found this project useful and want to support development, feel free to donate. 
 
 - **LTC (LTC Network): LVViYLmm2yayhYC82HTLHgiLmFM55CkVsj**  
-- **BTC (BEP20): 0xdd13b3d0e6ea8760afcbd137a5cc02f5d353c584**  
-- **ETH (BEP20): 0xdd13b3d0e6ea8760afcbd137a5cc02f5d353c584**  
-- **SOL (BEP20): 0xdd13b3d0e6ea8760afcbd137a5cc02f5d353c584**  
+- **BTC/ETH/SOL (BEP20): 0xdd13b3d0e6ea8760afcbd137a5cc02f5d353c584** 
 - **Binance ID: 496966292**  
 
-*[Contact](#contact) Abilash for more payment methods.*
+*[Contact Abilash](#contact) for more payment methods.*
 ---
 
 ## Contact
 
-- **Author:** abilash  
+- **Author:** Abilash  
 - **Website:** [abilash.link](https://abilash.link)  
 - **Discord:** [abilash.][https://abilash.link/discord]
 - **Email:** contact@abilash.link  
