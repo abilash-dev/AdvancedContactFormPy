@@ -14,20 +14,21 @@ import json
 import shutil
 import sys
 
-if not os.path.exists('.env'):
-    if os.path.exists('.env.example'):
-        shutil.copy('.env.example', '.env')
-        os.remove('.env.example')
-        print("\n---------- [ IMPORTANT ] ----------\n")
-        print("Successfully created .env file.")
-        print("Please open the new .env file and fill in the required values before running the app again.")
-        sys.exit(1)
-    else:
-        print("\n---------- [ IMPORTANT ] ----------\n")
-        print(".env.example file not found.")
-        print("Please create it from: https://github.com/abilash-dev/AdvancedContactFormPy#installation")
-        print("Or re-clone the repository properly to make sure all files are present.")
-        sys.exit(1)
+def check_env():
+    if not os.path.exists('.env'):
+        if os.path.exists('.env.example'):
+            shutil.copy('.env.example', '.env')
+            os.remove('.env.example')
+            print("\n---------- [ IMPORTANT ] ----------\n")
+            print("Successfully created .env file.")
+            print("Please open the new .env file and fill in the required values before running the app again.")
+            sys.exit(1)
+        else:
+            print("\n---------- [ IMPORTANT ] ----------\n")
+            print(".env.example file not found.")
+            print("Please create it from: https://github.com/abilash-dev/AdvancedContactFormPy#installation")
+            print("Or re-clone the repository properly to make sure all files are present.")
+            sys.exit(1)
         
 
 load_dotenv()
@@ -274,6 +275,6 @@ def verify_otp():
 
 
 if __name__ == "__main__":
+    check_env()
     app.run(host="0.0.0.0", port=5000, debug=True)
-    session.clear()
-    print("Running")
+    print("Your contact form is running....")
