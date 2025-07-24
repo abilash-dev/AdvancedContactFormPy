@@ -277,4 +277,3 @@ def verify_otp():
 if __name__ == "__main__":
     check_env()
     app.run(host="0.0.0.0", port=5000, debug=True)
-    print("Your contact form is running....")
