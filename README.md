@@ -157,7 +157,7 @@ If you found this project useful and want to support development, feel free to d
 
 - **Author:** Abilash  
 - **Website:** [abilash.link](https://abilash.link)  
-- **Discord:** [abilash.][https://abilash.link/discord]
+- **Discord:** [abilash.](https://abilash.link/discord)
 - **Email:** contact@abilash.link  
 
 ---
