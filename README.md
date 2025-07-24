@@ -170,4 +170,4 @@ _This project is licensed under the [MIT License](LICENSE)._
 
 ## Copyright
 
-&copy; abilash. All rights reserved.
+&copy; 2025 abilash-dev
