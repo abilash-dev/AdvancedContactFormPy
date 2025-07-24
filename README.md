@@ -164,7 +164,7 @@ If you found this project useful and want to support development, feel free to d
 
 ## License
 
-_No license specified yet. All rights reserved._
+_This project is licensed under the [MIT License](LICENSE)._
 
 ---
 
