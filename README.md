@@ -169,4 +169,4 @@ _This project is licensed under the [MIT License](LICENSE)._
 
 ## Copyright
 
-&copy; 2025 abilash-dev
+&copy; 2026 abilash-dev
